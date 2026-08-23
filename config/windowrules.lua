@@ -115,3 +115,11 @@ hl.window_rule({
     },
     no_focus = true,
 })
+
+hl.window_rule({
+    match = {
+        class = "^steam_proton$",
+    },
+    move = "cursor_x cursor_y",
+})
+
