@@ -8,6 +8,8 @@ CALCULATOR   = "gnome-calculator"
 OBS_STUDIO = "obs"
 DISCORD = "discord"
 BADLION = "APPIMAGE=lunaresmierda ~/Documentos/Badlion/AppRun"
+PRISM = "flatpak run org.prismlauncher.PrismLauncher"
+SPOTIFY = "flatpak run com.spotify.Client"
 STRAWBERRY = "strawberry"
 
 -- Monitors

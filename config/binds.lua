@@ -79,6 +79,8 @@ hl.bind(mainMod .. " + W",          hl.dsp.exec_cmd(launchPrefix .. BROWSER))
 hl.bind(mainMod .. " + G",          hl.dsp.exec_cmd(launchPrefix .. DISCORD))
 hl.bind(mainMod .. " + O",          hl.dsp.exec_cmd(launchPrefix .. OBS_STUDIO))
 hl.bind(mainMod .. " + B",          hl.dsp.exec_cmd(BADLION))
+hl.bind(mainMod .. " + SHIFT + B",  hl.dsp.exec_cmd(PRISM))
+hl.bind(mainMod .. " + N",          hl.dsp.exec_cmd(SPOTIFY))
 -- hl.bind(mainMod .. " + N",          hl.dsp.exec_cmd(launchPrefix .. STRAWBERRY))
 -- Im not using right now Strawberry since it seems that i need Spotify Premium for using it.
 hl.bind(mainMod .. " + N",          hl.dsp.exec_cmd("~/.config/hypr/scripts/spotify.py"))
