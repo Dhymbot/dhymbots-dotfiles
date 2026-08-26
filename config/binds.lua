@@ -84,7 +84,7 @@ hl.bind(mainMod .. " + N",          hl.dsp.exec_cmd(launchPrefix .. SPOTIFY))
 -- hl.bind(mainMod .. " + N",          hl.dsp.exec_cmd(launchPrefix .. STRAWBERRY))
 -- Im not using right now Strawberry since it seems that i need Spotify Premium for using it.
 hl.bind(mainMod .. " + N",          hl.dsp.exec_cmd("~/.config/hypr/scripts/spotify.py"))
-hl.bind("CONTROL + SHIFT + Escape", hl.dsp.exec_cmd(launchPrefix .. TERMINAL .. " -e btop"))
+hl.bind("CONTROL + SHIFT + Escape", hl.dsp.exec_cmd(launchPrefix .. TERMINAL .. " -e btop --themes-dir ~/.config/btop/themesvoid"))
 hl.bind(mainMod .. " + Z",          hl.dsp.exec_cmd(noctCall .. "settings-toggle"))
 hl.bind(mainMod .. " + X",          hl.dsp.exec_cmd(noctCall .. "panel-toggle control-center"))
 hl.bind(mainMod .. " + Space",      hl.dsp.exec_cmd(noctCall .. "panel-toggle launcher"))
