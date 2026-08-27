@@ -15,7 +15,7 @@ STRAWBERRY = "strawberry"
 -- Monitors
 MONITOR1 = "DP-1"
 MONITOR2 = "desc:LG Electronics LG FULL HD 0x000214BC"
-MONITOR3 = "Unknown-1"
+MONITOR3 = "eDP-1"
 PRIMARY_MONITOR = MONITOR1
 
 -- Workspaces

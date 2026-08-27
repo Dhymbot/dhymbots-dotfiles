@@ -13,6 +13,7 @@ hl.monitor({
     position  = "auto",
     scale     = "auto",
 })
+-- For laptop i recommend 1.33 instead of 1
 
 hl.monitor({
     output    = MONITOR2,
@@ -25,5 +26,5 @@ hl.monitor({
     output    = MONITOR3,
     mode      = "1920x1080@60",
     position  = "auto",
-    scale     = "auto",
+    scale     = "1.33",
 })
