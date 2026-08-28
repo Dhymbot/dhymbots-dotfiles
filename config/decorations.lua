@@ -38,8 +38,8 @@ hl.config({
         inactive_opacity = 0.85,
         fullscreen_opacity = 1,
         blur = {
-            size = 5,
-            passes = 4,
+            size = 6,
+            passes = 2,
             special = true,
         },
     },
