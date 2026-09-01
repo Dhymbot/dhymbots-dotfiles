@@ -173,3 +173,23 @@ hl.bind(mainMod .. " + CONTROL + mouse_down", hl.dsp.focus({ workspace = "m+1" }
 -- Special workspace (scratchpad)
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special" }))
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special())
+
+
+local toggle = 0
+local function something()
+    if toggle == 0 then
+        hl.config({general = { 
+            gaps_in = 10,
+            gaps_out = 45, 
+        }})
+        toggle = 1
+    else
+        hl.config({general = { 
+            gaps_in = 3,
+            gaps_out = 8, 
+        }})
+        toggle = 0
+    end
+end
+-- Me gustaría hacer alguna mierda que tratara de añadir un margen al hyprland para las aplicaciones en todo el workspace.
+hl.bind("ALT + F1", something)-- hl.dsp.exec_cmd("notify-send probandossss"))

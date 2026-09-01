@@ -20,3 +20,6 @@ PRIMARY_MONITOR = MONITOR1
 
 -- Workspaces
 NUM_WPM = 3 -- Number of workspaces per monitor (Max 10)
+
+
+-- Toggle Variables? (Yet investigating)
