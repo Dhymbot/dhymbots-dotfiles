@@ -193,3 +193,65 @@ local function something()
 end
 -- Me gustaría hacer alguna mierda que tratara de añadir un margen al hyprland para las aplicaciones en todo el workspace.
 hl.bind("ALT + F1", something)-- hl.dsp.exec_cmd("notify-send probandossss"))
+
+local function todoJunto()
+    for _, window in ipairs(hl.get_windows()) do
+        if window.floating then
+            hl.dispatch(
+                hl.dsp.window.float({
+                    window = window,
+                    action = "off",
+                })
+            )
+        end
+    end
+end
+local function todoSeparado()
+
+    local positions = {}
+
+    for _, window in ipairs(hl.get_windows()) do
+
+        local monitor = window.monitor
+        local name = monitor.name
+
+        if positions[name] == nil then
+            positions[name] = 0
+        end
+
+        local index = positions[name]
+
+        -- Convertimos la ventana en floating
+        hl.dispatch(
+            hl.dsp.window.float({
+                window = window,
+                action = "on"
+            })
+        )
+
+        -- tamaño que aún no lo ha cambiado
+        -- Convertimos la ventana en floating
+        hl.dispatch(
+            hl.dsp.window.resize({
+                window = window,
+                x = 600,
+                y = 500,
+                relative = false
+            })
+        )
+
+        -- Posición absoluta dentro del canvas de Hyprland
+        hl.dispatch(
+            hl.dsp.window.move({
+                window = window,
+                x = monitor.x + (index * 150),
+                y = monitor.y + 200,
+                relative = false
+            })
+        )
+
+        positions[name] = index + 1
+    end
+end
+hl.bind("ALT + F11", todoSeparado)
+hl.bind("ALT + F12", todoJunto)
