@@ -99,7 +99,7 @@ hl.bind(mainMod .. " + ALT + C",    hl.dsp.exec_cmd(noctCall .. "panel-toggle se
 -- 3. Overwatch (aún no, podría)
 -- 4. Rocket League (aún no, podría)
 -- 5. Deltarune (aún no, podría)
--- 
+-- 7. Heroic Launcher
 -- 8. Steam
 -- 9. Discord
 
@@ -111,6 +111,17 @@ hl.bind(mainMod .. " + ALT + C",    hl.dsp.exec_cmd(noctCall .. "panel-toggle se
 -- 5. Start Chrono
 --
 -- 9. Code
+
+-- Aplicaciones varias que puedo meter como atajos
+-- 1. 
+-- 2.
+-- 3.
+-- 4.
+-- 5.
+-- 6.
+-- 7.
+
+
 
 
 --------------------
@@ -225,6 +236,21 @@ local function something()
 end
 -- Me gustaría hacer alguna mierda que tratara de añadir un margen al hyprland para las aplicaciones en todo el workspace.
 hl.bind("ALT + F1", something)-- hl.dsp.exec_cmd("notify-send probandossss"))
+-- Debug
+local colorTab = 0
+local function changeColors()
+    local colorObj = [1, 2, 0]
+    colorTab = colorObj[colorTab]
+
+    local translateColors = ["ff0000", "00ff00", "0000ff"]
+    hl.dispatch(hl.dsp.exec_cmd("ratbagctl \"Logitech G203 LIGHTSYNC Gaming Mouse\" led 0 set mode on color " .. translateColors[colorTab] .. "; razer-cli -e static -c " .. translateColors[colorTab]))
+end
+
+-- ratbagctl "Logitech G203 LIGHTSYNC Gaming Mouse" led 0 set mode on color 00ff00
+-- razer-cli -e static -c 00ff00
+
+hl.bind("ALT + F3", hl.dsp.exec_cmd("notify-send probandooo; notify-send 'probandooo2'"))
+hl.bind("ALT + F4", hl.dsp.exec_cmd("notify-send " .. colorTab))
 
 local function todoJunto()
     for _, window in ipairs(hl.get_windows()) do
