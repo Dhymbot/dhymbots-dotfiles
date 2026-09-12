@@ -171,9 +171,21 @@ hl.bind(mainMod .. " + CONTROL + mouse_up",   hl.dsp.focus({ workspace = "m-1" }
 hl.bind(mainMod .. " + CONTROL + mouse_down", hl.dsp.focus({ workspace = "m+1" }))
 
 -- Special workspace (scratchpad)
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special" }))
+-- Unused. This feature is now in the function below. hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special" }))
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special())
 
+-- Move windows from special workspace
+hl.bind(mainMod .. " + SHIFT + S",         function ()
+    local activeWindow = hl.get_active_window()
+    if hl.get_active_special_workspace() then hl.dispatch(hl.dsp.window.move({ window = activeWindow, workspace = hl.get_active_workspace().name }))
+    else hl.dispatch(hl.dsp.window.move({ window = activeWindow, workspace = "special" }))
+    end
+end)
+-- Debugging
+--hl.bind(mainMod .. " + SHIFT + F2",         function ()
+--    hl.dispatch(hl.dsp.exec_cmd("notify-send '" .. hl.get_active_special_workspace().name .. "'"))
+--    hl.dispatch(hl.dsp.exec_cmd("notify-send '" .. hl.get_active_window().class .. "'"))
+--end)
 
 local toggle = 0
 local function something()
