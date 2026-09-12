@@ -237,20 +237,23 @@ end
 -- Me gustaría hacer alguna mierda que tratara de añadir un margen al hyprland para las aplicaciones en todo el workspace.
 hl.bind("ALT + F1", something)-- hl.dsp.exec_cmd("notify-send probandossss"))
 -- Debug
-local colorTab = 0
-local function changeColors()
-    local colorObj = [1, 2, 0]
+-- ALGO RARO PASA CON LAS VARIABLES, ADENTRO FUNCIONAN PERO AFUERA NO MANTIENEN EL VALOR Y SON ESTÁTICAS, NO HAY ESCRITURA. HAY QUE MIRAR ESO
+-- !!!!
+local colorObj = {red = "green", green = "blue", blue = "red"}
+colorTab = "red"
+function changeColors()
     colorTab = colorObj[colorTab]
-
-    local translateColors = ["ff0000", "00ff00", "0000ff"]
-    hl.dispatch(hl.dsp.exec_cmd("ratbagctl \"Logitech G203 LIGHTSYNC Gaming Mouse\" led 0 set mode on color " .. translateColors[colorTab] .. "; razer-cli -e static -c " .. translateColors[colorTab]))
+    -- hl.dispatch(hl.dsp.exec_cmd("notify-send " .. colorTab))
+    local translateColors = {red = "ff0000", green = "00ff00", blue = "0000ff"}
+    hl.dispatch(hl.dsp.exec_cmd("ratbagctl \"Logitech G203 LIGHTSYNC Gaming Mouse\" led 0 set mode on color " .. translateColors[colorTab] .. "; razer-cli -e static -c " .. translateColors[colorTab])) 
 end
-
 -- ratbagctl "Logitech G203 LIGHTSYNC Gaming Mouse" led 0 set mode on color 00ff00
 -- razer-cli -e static -c 00ff00
 
-hl.bind("ALT + F3", hl.dsp.exec_cmd("notify-send probandooo; notify-send 'probandooo2'"))
-hl.bind("ALT + F4", hl.dsp.exec_cmd("notify-send " .. colorTab))
+hl.bind(mainMod .. " + CONTROL + TAB", changeColors)--changeColors)--hl.dsp.exec_cmd("notify-send probandooo; notify-send 'probandooo2'"))
+--hl.bind("ALT + F4", function ()
+--    hl.dispatch(hl.dsp.exec_cmd("notify-send " .. colorTab))
+--end)
 
 local function todoJunto()
     for _, window in ipairs(hl.get_windows()) do
