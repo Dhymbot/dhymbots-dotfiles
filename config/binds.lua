@@ -93,6 +93,26 @@ hl.bind(mainMod .. " + L",          hl.dsp.exec_cmd(noctCall .. "session lock"))
 hl.bind(mainMod .. " + ALT + C",    hl.dsp.exec_cmd(noctCall .. "panel-toggle session"))
 
 
+-- Juegos que estoy utilizando atajos ahora mismo
+-- 1. Badlion + PrismLauncher
+-- 2. Sober (aún no, podría)
+-- 3. Overwatch (aún no, podría)
+-- 4. Rocket League (aún no, podría)
+-- 5. Deltarune (aún no, podría)
+-- 
+-- 8. Steam
+-- 9. Discord
+
+-- Aplicaciones de edición que puedo meter como atajos
+-- 1. OBS
+-- 2. Wondershare Filmora + Davinci Resolve
+-- 3. Audacity
+-- 4. Spotify
+-- 5. Start Chrono
+--
+-- 9. Code
+
+
 --------------------
 ---- OBS CONFIG ----
 --------------------
