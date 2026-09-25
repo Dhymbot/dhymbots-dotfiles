@@ -236,21 +236,31 @@ local function something()
 end
 -- Me gustaría hacer alguna mierda que tratara de añadir un margen al hyprland para las aplicaciones en todo el workspace.
 hl.bind("ALT + F1", something)-- hl.dsp.exec_cmd("notify-send probandossss"))
--- Debug
--- ALGO RARO PASA CON LAS VARIABLES, ADENTRO FUNCIONAN PERO AFUERA NO MANTIENEN EL VALOR Y SON ESTÁTICAS, NO HAY ESCRITURA. HAY QUE MIRAR ESO
--- !!!!
-local colorObj = {red = "green", green = "blue", blue = "red"}
-colorTab = "red"
+
+
+local colorObj = {red = "green", green = "blue", blue = "rainbow", rainbow = "red"}
+colorTab = "rainbow"
 function changeColors()
     colorTab = colorObj[colorTab]
     -- hl.dispatch(hl.dsp.exec_cmd("notify-send " .. colorTab))
-    local translateColors = {red = "ff0000", green = "00ff00", blue = "0000ff"}
-    hl.dispatch(hl.dsp.exec_cmd("ratbagctl \"Logitech G203 LIGHTSYNC Gaming Mouse\" led 0 set mode on color " .. translateColors[colorTab] .. "; razer-cli -e static -c " .. translateColors[colorTab])) 
+    local translateColors = {red = "ff0000", green = "00ff00", blue = "0000ff", rainbow = 0}
+    if colorTab == "rainbow" then
+        hl.dispatch(hl.dsp.exec_cmd("ratbagctl \"Logitech G203 LIGHTSYNC Gaming Mouse\" led 0 set mode cycle duration 5000; razer-cli -e spectrum"))
+        hl.dispatch(hl.dsp.exec_cmd("echo '[wallpaper]\nedge_smoothness = 0.75\ntransition = [ \"disc\", \"wipe\" ]\ntransition_duration = 2500\ndirectory = \"/home/alejandro/Imágenes/Wallpapers\"' > /home/alejandro/.config/noctalia/wallpaper.toml"))
+
+        -- Ahora hay que hacer que cambie el fondo la primera vez
+        hl.dispatch(hl.dsp.exec_cmd("echo '[wallpaper.automation]\nenabled = true\ninterval_seconds = 1' > /home/alejandro/.config/noctalia/automation.toml; sleep 1; echo '[wallpaper.automation]\nenabled = true\ninterval_seconds = 1200' > /home/alejandro/.config/noctalia/automation.toml"))
+    else
+        hl.dispatch(hl.dsp.exec_cmd("echo '[wallpaper]\nedge_smoothness = 0.75\ntransition = [ \"disc\", \"wipe\" ]\ntransition_duration = 2500\ndirectory = \"/home/alejandro/Imágenes/" .. colorTab .. "\"' > /home/alejandro/.config/noctalia/wallpaper.toml"))
+        hl.dispatch(hl.dsp.exec_cmd("ratbagctl \"Logitech G203 LIGHTSYNC Gaming Mouse\" led 0 set mode on color " .. translateColors[colorTab] .. "; razer-cli -e static -c " .. translateColors[colorTab]))
+        
+        hl.dispatch(hl.dsp.exec_cmd("echo '[wallpaper.automation]\nenabled = true\ninterval_seconds = 1' > /home/alejandro/.config/noctalia/automation.toml; sleep 1; echo '[wallpaper.automation]\nenabled = true\ninterval_seconds = 1200' > /home/alejandro/.config/noctalia/automation.toml"))
+    end
 end
 -- ratbagctl "Logitech G203 LIGHTSYNC Gaming Mouse" led 0 set mode on color 00ff00
 -- razer-cli -e static -c 00ff00
 
-hl.bind(mainMod .. " + CONTROL + TAB", changeColors)--changeColors)--hl.dsp.exec_cmd("notify-send probandooo; notify-send 'probandooo2'"))
+hl.bind("ALT + F5", changeColors)--changeColors)--hl.dsp.exec_cmd("notify-send probandooo; notify-send 'probandooo2'"))
 --hl.bind("ALT + F4", function ()
 --    hl.dispatch(hl.dsp.exec_cmd("notify-send " .. colorTab))
 --end)
