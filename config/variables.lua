@@ -12,6 +12,8 @@ PRISM = "flatpak run org.prismlauncher.PrismLauncher"
 SPOTIFY = "flatpak run com.spotify.Client"
 STRAWBERRY = "strawberry"
 
+TOMATO = "python3 ~/.config/hypr/scripts/tomate8.py"
+
 -- Monitors
 MONITOR1 = "DP-1"
 MONITOR2 = "desc:LG Electronics LG FULL HD 0x000214BC"

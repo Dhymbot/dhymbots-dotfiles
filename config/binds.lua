@@ -326,3 +326,7 @@ local function todoSeparado()
 end
 hl.bind("ALT + F11", todoSeparado)
 hl.bind("ALT + F12", todoJunto)
+
+-- Tomates
+hl.bind("Menu + A", hl.dsp.exec_cmd(TOMATO))
+hl.bind("mouse:272", hl.dsp.exec_cmd("pkill -f tomate8.py"), { non_consuming = true })
