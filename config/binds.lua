@@ -330,3 +330,14 @@ hl.bind("ALT + F12", todoJunto)
 -- Tomates
 hl.bind("Menu + A", hl.dsp.exec_cmd(TOMATO))
 hl.bind("mouse:272", hl.dsp.exec_cmd("pkill -f tomate8.py"), { non_consuming = true })
+
+hl.bind("ALT + PERIOD", function()
+    hl.dispatch(hl.dsp.exec_cmd("handy --toggle-transcription"))
+    --hl.dispatch(hl.dsp.exec_cmd("notify-send 'Estás grabando'"))-- Mantener pulsado: activar Push to Talk
+end)
+
+hl.bind("ALT + PERIOD", function()
+    hl.dispatch(hl.dsp.exec_cmd("pkill -USR2 -x handy"))
+    --hl.dispatch(hl.dsp.exec_cmd("notify-send 'Has dejado de grabar'"))
+    -- Al soltar: desactivar Push to Talk
+end, { release = true })
